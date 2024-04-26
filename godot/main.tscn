@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxr00ycg1285k"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_wkp03"]
+[ext_resource type="PackedScene" uid="uid://dahapru21aq7c" path="res://bh.tscn" id="2_bfhn1"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wkp03")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BallNumberLabel" type="Label" parent="VBoxContainer/HSplitContainer"]
+layout_mode = 2
+text = "Ball number"
+
+[node name="BallNumber" type="Label" parent="VBoxContainer/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="FrameLabel" type="Label" parent="VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+text = "Frame"
+
+[node name="Frame" type="Label" parent="VBoxContainer/HSplitContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Balls" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="BH1" parent="." instance=ExtResource("2_bfhn1")]
+unique_name_in_owner = true
+
+[node name="BH2" parent="." instance=ExtResource("2_bfhn1")]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="BH1" to="." method="_on_bh_body_entered"]
+[connection signal="body_entered" from="BH2" to="." method="_on_bh_body_entered"]
