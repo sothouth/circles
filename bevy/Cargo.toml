@@ -1,0 +1,14 @@
+[package]
+name = "bevy_circle"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "*"
+bevy_rand = "*"
+rand = "*"
+bevy_prng = { version = "*", features = ["rand_chacha"] }
+rand_core = "*"
+bevy_spatial = "*"
